@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>FXトラッカー📱</title>
+    
+    <!-- PWA メタデータ -->
+    <meta name="theme-color" content="#1a365d">
+    <meta name="description" content="FX仮想エントリー損益トラッカー - オフライン対応PWA">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="FXトラッカー">
+    <meta name="msapplication-TileColor" content="#1a365d">
+    <meta name="msapplication-tap-highlight" content="no">
+    
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkZY44OI44Op44OD44Kr44O8IC0g5LuW5oOz44Ko44Oz44OI44Oq44O85o6f55ek44Ki44OX44OqIiwKICAic2hvcnRfbmFtZSI6ICJGWOODiOODqeODg+OCq+ODvCIsCiAgImRlc2NyaXB0aW9uIjogIkZY5LuX5oOz44Ko44Oz44OI44Oq44O844Gu5o6f55ek44KS44Oq44Ki44Or44K/44Kk44Og44Gn6L+954m944GZ44KLUGA944Ki44OX44OqIiwKICAic3RhcnRfdXJsIjogIi4vIiwKICAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwKICAiYmFja2dyb3VuZF9jb2xvciI6ICIjMWEzNjVkIiwKICAidGhlbWVfY29sb3IiOiAiIzFhMzY1ZCIsCiAgIm9yaWVudGF0aW9uIjogInBvcnRyYWl0IiwKICAiY2F0ZWdvcmllcyI6IFsiZmluYW5jZSIsICJ0b29scyJdLAogICJsYW5nIjogImphIiwKICAiaWNvbnMiOiBbCiAgICB7CiAgICAgICJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCM2FXUjBhRDBpTVRJNElpQm9aV2xuYUhROUlqRXlPQ0lnZG1sbGQwSnZlRDBpTUNBd0lETXlJRE15SWlCNGJXeHVjejBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01DOXpkbWNpUGp4eVpXTjBJSGRwWkhSb1BTSXpNaUlnYUdWcFoyaDBQU0l6TWlJZ1ptbHNiRDBpSXpGaE16WTFaQ0l2UGp4amFYSmpiR1VnWTNnOUlqRTJJaUIyZVQwaU1UWWlJSEk5SWpVaUlHWnBiR3c5SWlNME1qazVaVEVpTHo0OGRHVjRkQ0I0UFNJeElpQjVQU0l5TnlJZ1ptbHNiRDBpSTJabVppSWdabTl1ZEMxbVlXMXBiSGs5SWxObFoyOWxJRlZKTENCQmNtbGhiQ3dnYzJGdWN5MXpaWEpwWmlJZ1ptOXVkQzF6YVhwbFBTSXlNSEI0SWlBK1JsZStQQzlrY3o0OEwzUmxlSFErUEM5emRtYysiLAogICAgICAic2l6ZXMiOiAiMzJ4MzIiLAogICAgICAidHlwZSI6ICJpbWFnZS9zdmcreG1sIiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUIzYVdSMGFEMGlOVEV5SWlCb1pXbG5hSFE5SWpVeE1pSWdkbWxsZDBKdmVEMGlNQ0F3SURNNU5DQXpPVFFpSUdobGJHNXpQU0pvZEhSd2N6b3ZMM2QzZHk1M015NXZjbWN2TWpBd01DOXpkbWNpUGp4eVpXTjBJSGRwWkhSb1BTSXpPVFFpSUdobGFXZG9kRDBpTXprMElpQm1hV3hzUFNJall6RmhNelkxWkNJdlBqeGphWEpqYkdVZ1kzZzlJakU1TmlJZ1kzazlJakU1TmlJZ2NqMGlOalFpSUdacGJHdzlJaU0wTWprNVpURWlMejQ4ZEdWNGRDQjRQU0k0TUNJZ2VUMGlNVGsySWlCbWFXeHNQU0lqWm1abUlpQm1iMjUwTFdaaGJXbHNlVDBpUVhKcFlXd3NJSE5oYm5NdGMyVnlhV1lpSUdadmJuUXRjMmw2WlQwaU5EaFFXQ0krUmxnK1BDOTBaWGgwUGp3dmMzWm5QZz09IiwKICAgICAgInNpemVzIjogIjUxMng1MTIiLAogICAgICAidHlwZSI6ICJpbWFnZS9zdmcreG1sIiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfQogIF0sCiAgInNjcmVlbnNob3RzIjogW10KfQ==">
+    
+    <!-- アイコン -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIGZpbGw9IiMxYTM2NWQiLz48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSI1IiBmaWxsPSIjNDI5OWUxIi8+PHRleHQgeD0iMSIgeT0iMjciIGZpbGw9IiNmZmYiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjBweCIgPkZYPC90ZXh0Pjwvc3ZnPg==">
+    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDM5NCAzOTQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjM5NCIgaGVpZ2h0PSIzOTQiIGZpbGw9IiMxYTM2NWQiLz48Y2lyY2xlIGN4PSIxOTciIGN5PSIxOTciIHI9IjY0IiBmaWxsPSIjNDI5OWUxIi8+PHRleHQgeD0iODAiIHk9IjI0MCIgZmlsbD0iI2ZmZiIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyMHB4Ij5GWDwvdGV4dD48L3N2Zz4=">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: linear-gradient(180deg, #1a365d 0%, #2d3748 100%);
+            min-height: 100vh;
+            color: #fff;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* ヘッダー */
+        .header {
+            background: linear-gradient(135deg, #1a365d, #2b6cb0);
+            padding: 20px 16px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header h1 {
+            font-size: 1.8em;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        /* メインコンテンツ */
+        .main-content {
+            padding: 16px;
+            padding-bottom: 100px; /* ボトムナビ分 */
+        }
+
+        /* コントロールパネル */
+        .control-panel {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .control-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            gap: 12px;
+        }
+
+        .control-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .control-label {
+            font-size: 0.9em;
+            font-weight: 600;
+            color: #e2e8f0;
+            min-width: 80px;
+        }
+
+        .control-input {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            font-size: 16px;
+            backdrop-filter: blur(5px);
+        }
+
+        .control-input:focus {
+            outline: none;
+            border-color: #4299e1;
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.3);
+        }
+
+        /* ステータスバー */
+        .status-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            padding: 12px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .status-live { background: #68d391; }
+        .status-closed { background: #fc8181; }
+
+        .status-text {
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .next-update {
+            font-size: 0.8em;
+            opacity: 0.8;
+            margin-left: 8px;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* アクションボタン */
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 14px 20px;
+            background: linear-gradient(135deg, #4299e1, #3182ce);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 0.9em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(66, 153, 225, 0.3);
+            touch-action: manipulation;
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+            box-shadow: 0 2px 4px rgba(66, 153, 225, 0.3);
+        }
+
+        /* サマリーカード */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .summary-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 16px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .summary-card.wide {
+            grid-column: 1 / -1;
+        }
+
+        .summary-title {
+            font-size: 0.8em;
+            color: #cbd5e0;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .summary-value {
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .summary-subtitle {
+            font-size: 0.7em;
+            color: #a0aec0;
+        }
+
+        .positive { color: #68d391; }
+        .negative { color: #fc8181; }
+        .neutral { color: #e2e8f0; }
+
+        /* 取引テーブル */
+        .trades-container {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.2);
+            overflow: hidden;
+        }
+
+        .trades-header {
+            background: rgba(0,0,0,0.2);
+            padding: 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .trades-header h3 {
+            font-size: 1.1em;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .sort-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 12px;
+        }
+
+        .sort-select {
+            padding: 8px 16px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            font-size: 0.9em;
+            backdrop-filter: blur(5px);
+        }
+
+        .trades-list {
+            max-height: 60vh;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .trade-item {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: background-color 0.3s;
+        }
+
+        .trade-item:last-child {
+            border-bottom: none;
+        }
+
+        .trade-item:active {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .trade-rank {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #4299e1, #3182ce);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8em;
+            font-weight: 700;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .trade-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .trade-pair {
+            font-size: 1em;
+            font-weight: 600;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .trade-type {
+            background: linear-gradient(135deg, #68d391, #48bb78);
+            color: #1a202c;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.7em;
+            font-weight: 700;
+        }
+
+        .trade-type.sell {
+            background: linear-gradient(135deg, #fc8181, #e53e3e);
+            color: white;
+        }
+
+        .trade-details {
+            font-size: 0.8em;
+            color: #a0aec0;
+            display: flex;
+            gap: 12px;
+        }
+
+        .trade-pnl {
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .pnl-amount {
+            font-size: 1.1em;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .pnl-pips {
+            font-size: 0.8em;
+            opacity: 0.8;
+        }
+
+        /* ボトムナビゲーション */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 54, 93, 0.95);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding: 12px 16px;
+            display: flex;
+            justify-content: space-around;
+            z-index: 100;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 8px;
+            border-radius: 8px;
+            transition: all 0.3s;
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+
+        .nav-item:active {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .nav-icon {
+            font-size: 1.2em;
+            margin-bottom: 4px;
+        }
+
+        .nav-label {
+            font-size: 0.7em;
+            color: #cbd5e0;
+        }
+
+        /* ローディング */
+        .loading {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-top: 3px solid #4299e1;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* スワイプヒント */
+        .swipe-hint {
+            text-align: center;
+            padding: 16px;
+            color: #a0aec0;
+            font-size: 0.8em;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* PWA インストールバナー */
+        .install-banner {
+            background: linear-gradient(135deg, #38b2ac, #319795);
+            margin: 0 -16px 20px -16px;
+            padding: 16px;
+            text-align: center;
+            cursor: pointer;
+            touch-action: manipulation;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            animation: slideDown 0.5s ease-out;
+        }
+
+        .install-banner:active {
+            background: linear-gradient(135deg, #319795, #2c7a7b);
+        }
+
+        /* ネットワーク状態 */
+        .network-status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 16px;
+            padding: 8px 16px;
+            background: rgba(245, 101, 101, 0.9);
+            color: white;
+            border-radius: 8px;
+            font-size: 0.9em;
+            font-weight: 600;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        .network-status.online {
+            background: rgba(72, 187, 120, 0.9);
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(0); opacity: 1; }
+            to { transform: translateY(-100%); opacity: 0; }
+        }
+
+        /* PWA専用スタイル */
+        @media (display-mode: standalone) {
+            body {
+                padding-top: env(safe-area-inset-top);
+                padding-bottom: env(safe-area-inset-bottom);
+            }
+            
+            .header {
+                padding-top: calc(20px + env(safe-area-inset-top));
+            }
+            
+            .bottom-nav {
+                padding-bottom: calc(12px + env(safe-area-inset-bottom));
+            }
+        }
+
+        /* プルツーリフレッシュ */
+        .pull-to-refresh {
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 16px;
+            background: rgba(66, 153, 225, 0.9);
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .pull-to-refresh.active {
+            top: 20px;
+        }
+
+        /* アニメーション */
+        .fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* スクロールバー */
+        .trades-list::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .trades-list::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .trades-list::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.3);
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎯 FXトラッカー</h1>
+        <p>仮想エントリー損益追跡</p>
+    </div>
+
+            <div class="main-content">
+            <!-- PWA インストールバナー -->
+            <div id="installBanner" class="install-banner" style="display: none;" onclick="installPWA()">
+                <div style="font-size: 1.1em; font-weight: 600; margin-bottom: 4px;">
+                    📱 アプリとして追加
+                </div>
+                <div style="font-size: 0.9em; opacity: 0.9;">
+                    ホーム画面に追加してオフライン使用可能
+                </div>
+            </div>
+
+            <!-- ネットワーク状態 -->
+            <div id="networkStatus" class="network-status" style="display: none;">
+                <span id="networkIcon">📶</span>
+                <span id="networkText">オンライン</span>
+            </div>
+        <!-- コントロールパネル -->
+        <div class="control-panel fade-in">
+            <div class="control-row">
+                <span class="control-label">開始日</span>
+                <input type="date" id="entryDate" class="control-input">
+            </div>
+            <div class="control-row">
+                <span class="control-label">ロット</span>
+                <input type="number" id="lotSize" value="1.0" min="0.01" step="0.01" class="control-input">
+            </div>
+        </div>
+
+        <!-- ステータスバー -->
+        <div class="status-bar fade-in">
+            <div class="status-indicator status-closed" id="marketStatus"></div>
+            <span class="status-text" id="statusText">市場CLOSE</span>
+            <span class="next-update" id="nextUpdateText">次回更新: --:--</span>
+        </div>
+
+        <!-- アクションボタン -->
+        <div class="action-buttons fade-in">
+            <button class="btn" onclick="refreshData()">🔄 更新</button>
+            <button class="btn" onclick="resetEntries()">↻ リセット</button>
+        </div>
+
+        <!-- サマリー -->
+        <div class="summary-grid fade-in">
+            <div class="summary-card wide">
+                <div class="summary-title">総損益</div>
+                <div class="summary-value neutral" id="totalPnL">$0.00</div>
+                <div class="summary-subtitle" id="tradingPeriod">0日間運用</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-title">勝率</div>
+                <div class="summary-value neutral" id="winRate">0%</div>
+                <div class="summary-subtitle" id="profitTrades">0勝</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-title">日平均</div>
+                <div class="summary-value neutral" id="dailyAvgPnL">$0.00</div>
+                <div class="summary-subtitle" id="lossTrades">0敗</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-title">最大損失</div>
+                <div class="summary-value negative" id="maxLoss">$0.00</div>
+                <div class="summary-subtitle">単一ポジション</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-title">時間経過</div>
+                <div class="summary-value neutral" id="daysSinceEntry">0日</div>
+                <div class="summary-subtitle" id="entryDateDisplay">未設定</div>
+            </div>
+        </div>
+
+        <!-- 取引リスト -->
+        <div class="trades-container fade-in">
+            <div class="trades-header">
+                <h3>📊 取引一覧</h3>
+                <div class="sort-controls">
+                    <select id="sortBy" class="sort-select">
+                        <option value="pnl_desc">損益順 (高→低)</option>
+                        <option value="pnl_asc">損益順 (低→高)</option>
+                        <option value="pair">通貨ペア順</option>
+                        <option value="type">取引タイプ順</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div id="loadingIndicator" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>価格データを取得中...</p>
+            </div>
+            
+            <div class="trades-list" id="tradesList">
+                <!-- 取引アイテムがここに動的に追加されます -->
+            </div>
+            
+            <div class="swipe-hint">
+                上下にスワイプしてスクロール
+            </div>
+        </div>
+    </div>
+
+    <!-- ボトムナビゲーション -->
+    <div class="bottom-nav">
+        <div class="nav-item" onclick="scrollToTop()">
+            <div class="nav-icon">⬆️</div>
+            <div class="nav-label">TOP</div>
+        </div>
+        <div class="nav-item" onclick="refreshData()">
+            <div class="nav-icon">🔄</div>
+            <div class="nav-label">更新</div>
+        </div>
+        <div class="nav-item" onclick="showInfo()">
+            <div class="nav-icon">ℹ️</div>
+            <div class="nav-label">情報</div>
+        </div>
+        <div class="nav-item" onclick="toggleTheme()">
+            <div class="nav-icon">🌙</div>
+            <div class="nav-label">テーマ</div>
+        </div>
+    </div>
+
+    <script>
+        const SELL_PAIRS_ORG = ["AUDUSD", "NZDJPY", "GBPCHF", "EURUSD", "EURCHF", "CHFJPY", "USDJPY"];
+        const BUY_PAIRS_ORG = ["USDCHF", "EURGBP", "NZDUSD", "GBPUSD", "EURJPY", "AUDJPY", "GBPJPY"];
+        
+        let trades = [];
+        let isLoading = false;
+        let entryStartDate = null;
+        let tradingDays = 0;
+        let isMarketOpen = false;
+        let lastPrices = {};
+        let updateInterval = null;
+        let deferredPrompt = null;
+        let isInstalled = false;
+
+        // 仮想エントリー価格
+        const entryPrices = {
+            'AUDUSD': 0.6720, 'NZDJPY': 89.45, 'GBPCHF': 1.1245, 'EURUSD': 1.0890,
+            'EURCHF': 0.9765, 'CHFJPY': 162.30, 'USDJPY': 158.45, 'USDCHF': 0.8965,
+            'EURGBP': 0.8420, 'NZDUSD': 0.5985, 'GBPUSD': 1.2740, 'EURJPY': 172.65,
+            'AUDJPY': 106.50, 'GBPJPY': 202.15
+        };
+
+        // 市場時間チェック
+        function isMarketOpenNow() {
+            const now = new Date();
+            const utc = new Date(now.getTime() + (now.getTimezoneOffset() * 60000));
+            const day = utc.getDay();
+            const hour = utc.getHours();
+            const timeInMinutes = hour * 60 + utc.getMinutes();
+            
+            if (day === 6 && timeInMinutes >= 1320) return false;
+            if (day === 0) return false;
+            if (day === 1 && timeInMinutes < 1320) return false;
+            
+            return true;
+        }
+
+        function updateMarketStatus() {
+            isMarketOpen = isMarketOpenNow();
+            const statusIndicator = document.getElementById('marketStatus');
+            const statusText = document.getElementById('statusText');
+            
+            if (isMarketOpen) {
+                statusIndicator.className = 'status-indicator status-live';
+                statusText.textContent = '市場OPEN 🟢';
+            } else {
+                statusIndicator.className = 'status-indicator status-closed';
+                statusText.textContent = '市場CLOSE 🔴';
+            }
+            
+            return isMarketOpen;
+        }
+
+        // 次回更新時刻計算
+        function getNextUpdateTime() {
+            const now = new Date();
+            const utc = new Date(now.getTime() + (now.getTimezoneOffset() * 60000));
+            const updateHours = [0, 4, 8, 12, 16, 20];
+            const currentHour = utc.getHours();
+            
+            let nextHour = updateHours.find(hour => hour > currentHour);
+            
+            const nextUpdate = new Date(utc);
+            if (nextHour === undefined) {
+                nextUpdate.setDate(nextUpdate.getDate() + 1);
+                nextUpdate.setHours(0, 0, 0, 0);
+            } else {
+                nextUpdate.setHours(nextHour, 0, 0, 0);
+            }
+            
+            return nextUpdate;
+        }
+
+        function updateNextUpdateDisplay() {
+            const nextUpdate = getNextUpdateTime();
+            const now = new Date();
+            const utcNow = new Date(now.getTime() + (now.getTimezoneOffset() * 60000));
+            
+            const timeDiff = nextUpdate - utcNow;
+            const hoursRemaining = Math.floor(timeDiff / (1000 * 60 * 60));
+            const minutesRemaining = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+            
+            const jstUpdate = new Date(nextUpdate.getTime() - (9 * 60 * 60 * 1000));
+            const updateTimeStr = jstUpdate.toLocaleTimeString('ja-JP', {
+                hour: '2-digit',
+                minute: '2-digit',
+                timeZone: 'Asia/Tokyo'
+            });
+            
+            document.getElementById('nextUpdateText').textContent = 
+                `次回更新: ${updateTimeStr} (${hoursRemaining}h${minutesRemaining}m後)`;
+            
+            if (timeDiff <= 60000) {
+                performScheduledUpdate();
+            }
+        }
+
+        function performScheduledUpdate() {
+            refreshData();
+            setTimeout(updateNextUpdateDisplay, 2000);
+        }
+
+        // 日付計算
+        function calculateTradingDays() {
+            if (!entryStartDate) return 0;
+            
+            const startDate = new Date(entryStartDate + 'T00:00:00Z');
+            const currentDate = new Date();
+            const diffTime = Math.abs(currentDate - startDate);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            
+            return diffDays;
+        }
+
+        function setDefaultEntryDate() {
+            const today = new Date();
+            const thirtyDaysAgo = new Date(today);
+            thirtyDaysAgo.setDate(today.getDate() - 30);
+            
+            const dateString = thirtyDaysAgo.toISOString().split('T')[0];
+            document.getElementById('entryDate').value = dateString;
+            entryStartDate = dateString;
+            updateDateDisplay();
+        }
+
+        // 価格生成
+        function generateCurrentPrices() {
+            const currentPrices = {};
+            const now = new Date();
+            const utcNow = new Date(now.getTime() + (now.getTimezoneOffset() * 60000));
+            const isOpen = updateMarketStatus();
+            
+            if (!isOpen) {
+                for (let pair in entryPrices) {
+                    if (lastPrices[pair]) {
+                        currentPrices[pair] = lastPrices[pair];
+                    } else {
+                        const seed = pair.charCodeAt(0) + pair.charCodeAt(1);
+                        const entryPrice = entryPrices[pair];
+                        const weekendAdjustment = (Math.sin(seed) * 0.5 + 0.5) * entryPrice * 0.002;
+                        currentPrices[pair] = entryPrice + weekendAdjustment;
+                    }
+                }
+                return currentPrices;
+            }
+            
+            const currentHour = utcNow.getHours();
+            const updatePeriod = Math.floor(currentHour / 4);
+            const dayOfYear = Math.floor((utcNow - new Date(utcNow.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+            const timeSeed = dayOfYear * 6 + updatePeriod;
+            
+            for (let pair in entryPrices) {
+                const entryPrice = entryPrices[pair];
+                const pairSeed = pair.charCodeAt(0) + pair.charCodeAt(1) + timeSeed;
+                
+                const daysMultiplier = Math.max(1, tradingDays);
+                const volatility = entryPrice * 0.002;
+                const trendDirection = Math.sin(daysMultiplier * 0.05 + pairSeed * 0.01);
+                const cumulativeChange = trendDirection * volatility * Math.sqrt(daysMultiplier);
+                
+                const periodicChange = Math.sin(pairSeed * 0.1) * entryPrice * 0.003;
+                
+                currentPrices[pair] = entryPrice + cumulativeChange + periodicChange;
+            }
+            return currentPrices;
+        }
+
+        // 計算関数
+        function calculatePipValue(pair) {
+            return pair.includes('JPY') ? 0.01 : 0.0001;
+        }
+
+        function calculatePips(entryPrice, currentPrice, tradeType, pair) {
+            const pipValue = calculatePipValue(pair);
+            let priceDiff = currentPrice - entryPrice;
+            
+            if (tradeType === 'SELL') {
+                priceDiff = -priceDiff;
+            }
+            
+            return priceDiff / pipValue;
+        }
+
+        function calculatePnL(entryPrice, currentPrice, tradeType, lotSize, pair) {
+            const pips = calculatePips(entryPrice, currentPrice, tradeType, pair);
+            const pipValueInUSD = 10 * lotSize;
+            return pips * pipValueInUSD;
+        }
+
+        // データ初期化
+        function initializeTrades() {
+            trades = [];
+            const currentPrices = generateCurrentPrices();
+            
+            SELL_PAIRS_ORG.forEach(pair => {
+                trades.push({
+                    pair: pair,
+                    type: 'SELL',
+                    entryPrice: entryPrices[pair],
+                    currentPrice: currentPrices[pair],
+                    lotSize: parseFloat(document.getElementById('lotSize').value),
+                    pnl: 0,
+                    pips: 0
+                });
+            });
+            
+            BUY_PAIRS_ORG.forEach(pair => {
+                trades.push({
+                    pair: pair,
+                    type: 'BUY',
+                    entryPrice: entryPrices[pair],
+                    currentPrice: currentPrices[pair],
+                    lotSize: parseFloat(document.getElementById('lotSize').value),
+                    pnl: 0,
+                    pips: 0
+                });
+            });
+            
+            updatePnL();
+        }
+
+        function updatePnL() {
+            const lotSize = parseFloat(document.getElementById('lotSize').value);
+            
+            trades.forEach(trade => {
+                trade.lotSize = lotSize;
+                trade.pips = calculatePips(trade.entryPrice, trade.currentPrice, trade.type, trade.pair);
+                trade.pnl = calculatePnL(trade.entryPrice, trade.currentPrice, trade.type, lotSize, trade.pair);
+            });
+            
+            sortTrades();
+            updateDisplay();
+        }
+
+        function sortTrades() {
+            const sortBy = document.getElementById('sortBy').value;
+            
+            switch(sortBy) {
+                case 'pnl_desc':
+                    trades.sort((a, b) => b.pnl - a.pnl);
+                    break;
+                case 'pnl_asc':
+                    trades.sort((a, b) => a.pnl - b.pnl);
+                    break;
+                case 'pair':
+                    trades.sort((a, b) => a.pair.localeCompare(b.pair));
+                    break;
+                case 'type':
+                    trades.sort((a, b) => a.type.localeCompare(b.type));
+                    break;
+            }
+        }
+
+        function updateDisplay() {
+            updateSummary();
+            updateTradesList();
+            updateDateDisplay();
+        }
+
+        function updateSummary() {
+            const totalPnL = trades.reduce((sum, trade) => sum + trade.pnl, 0);
+            const profitTrades = trades.filter(trade => trade.pnl > 0).length;
+            const lossTrades = trades.filter(trade => trade.pnl < 0).length;
+            const winRate = trades.length > 0 ? (profitTrades / trades.length * 100) : 0;
+            const dailyAvgPnL = tradingDays > 0 ? totalPnL / tradingDays : 0;
+            const maxLoss = Math.min(...trades.map(trade => trade.pnl), 0);
+            
+            document.getElementById('totalPnL').textContent = `$${totalPnL.toFixed(2)}`;
+            document.getElementById('totalPnL').className = `summary-value ${totalPnL >= 0 ? 'positive' : 'negative'}`;
+            
+            document.getElementById('winRate').textContent = `${winRate.toFixed(1)}%`;
+            document.getElementById('winRate').className = `summary-value ${winRate >= 50 ? 'positive' : 'negative'}`;
+            
+            document.getElementById('dailyAvgPnL').textContent = `$${dailyAvgPnL.toFixed(2)}`;
+            document.getElementById('dailyAvgPnL').className = `summary-value ${dailyAvgPnL >= 0 ? 'positive' : 'negative'}`;
+            
+            document.getElementById('maxLoss').textContent = `$${maxLoss.toFixed(2)}`;
+            document.getElementById('profitTrades').textContent = `${profitTrades}勝`;
+            document.getElementById('lossTrades').textContent = `${lossTrades}敗`;
+        }
+
+        function updateTradesList() {
+            const container = document.getElementById('tradesList');
+            container.innerHTML = '';
+            
+            trades.forEach((trade, index) => {
+                const tradeItem = document.createElement('div');
+                tradeItem.className = 'trade-item';
+                
+                const pnlClass = trade.pnl >= 0 ? 'positive' : 'negative';
+                const pipsSign = trade.pips >= 0 ? '+' : '';
+                
+                tradeItem.innerHTML = `
+                    <div class="trade-rank">${index + 1}</div>
+                    <div class="trade-info">
+                        <div class="trade-pair">
+                            ${trade.pair}
+                            <span class="trade-type ${trade.type.toLowerCase()}">${trade.type}</span>
+                        </div>
+                        <div class="trade-details">
+                            <span>エントリー: ${trade.entryPrice.toFixed(trade.pair.includes('JPY') ? 2 : 4)}</span>
+                            <span>現在: ${trade.currentPrice.toFixed(trade.pair.includes('JPY') ? 2 : 4)}</span>
+                        </div>
+                    </div>
+                    <div class="trade-pnl">
+                        <div class="pnl-amount ${pnlClass}">$${trade.pnl.toFixed(2)}</div>
+                        <div class="pnl-pips ${pnlClass}">${pipsSign}${trade.pips.toFixed(1)}pips</div>
+                    </div>
+                `;
+                
+                container.appendChild(tradeItem);
+            });
+        }
+
+        function updateDateDisplay() {
+            if (entryStartDate) {
+                tradingDays = calculateTradingDays();
+                document.getElementById('daysSinceEntry').textContent = `${tradingDays}日`;
+                document.getElementById('tradingPeriod').textContent = `${tradingDays}日間運用`;
+                
+                const formattedDate = new Date(entryStartDate + 'T00:00:00Z').toLocaleDateString('ja-JP', {
+                    month: 'short',
+                    day: 'numeric',
+                    timeZone: 'UTC'
+                });
+                document.getElementById('entryDateDisplay').textContent = `${formattedDate}から`;
+            } else {
+                document.getElementById('daysSinceEntry').textContent = '0日';
+                document.getElementById('tradingPeriod').textContent = '0日間運用';
+                document.getElementById('entryDateDisplay').textContent = '未設定';
+                tradingDays = 0;
+            }
+        }
+
+        // UI操作
+        function refreshData() {
+            if (isLoading) return;
+            
+            isLoading = true;
+            document.getElementById('loadingIndicator').style.display = 'block';
+            
+            setTimeout(() => {
+                const currentPrices = generateCurrentPrices();
+                trades.forEach(trade => {
+                    trade.currentPrice = currentPrices[trade.pair];
+                });
+                
+                updatePnL();
+                document.getElementById('loadingIndicator').style.display = 'none';
+                isLoading = false;
+            }, 1000);
+        }
+
+        function resetEntries() {
+            initializeTrades();
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showInfo() {
+            alert('🎯 FXトラッカー\n\n📊 4時間ごと自動更新\n⏰ UTC: 0,4,8,12,16,20時\n📱 スマホ最適化版\n\n開発者: Your Name');
+        }
+
+        function toggleTheme() {
+            // ダークテーマ切り替え（PWA機能として拡張）
+            const body = document.body;
+            const isDark = body.style.filter === 'invert(1) hue-rotate(180deg)';
+            
+            if (isDark) {
+                body.style.filter = '';
+                showNotification('☀️ ライトテーマに切り替えました');
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.style.filter = 'invert(1) hue-rotate(180deg)';
+                showNotification('🌙 ダークテーマに切り替えました');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // オフラインデータ保存
+        function saveDataOffline() {
+            try {
+                const data = {
+                    trades: trades,
+                    entryStartDate: entryStartDate,
+                    tradingDays: tradingDays,
+                    lastPrices: lastPrices,
+                    timestamp: Date.now()
+                };
+                localStorage.setItem('fx-tracker-offline-data', JSON.stringify(data));
+                console.log('💾 データをオフライン保存しました');
+            } catch (error) {
+                console.log('⚠️ オフラインデータ保存エラー:', error);
+            }
+        }
+
+        // オフラインデータ読み込み
+        function loadDataOffline() {
+            try {
+                const savedData = localStorage.getItem('fx-tracker-offline-data');
+                if (savedData) {
+                    const data = JSON.parse(savedData);
+                    
+                    // データが24時間以内なら使用
+                    const hoursDiff = (Date.now() - data.timestamp) / (1000 * 60 * 60);
+                    if (hoursDiff < 24) {
+                        trades = data.trades || [];
+                        entryStartDate = data.entryStartDate;
+                        tradingDays = data.tradingDays || 0;
+                        lastPrices = data.lastPrices || {};
+                        
+                        console.log('📦 オフラインデータを読み込みました');
+                        return true;
+                    } else {
+                        console.log('⏰ オフラインデータが古いため削除します');
+                        localStorage.removeItem('fx-tracker-offline-data');
+                    }
+                }
+            } catch (error) {
+                console.log('⚠️ オフラインデータ読み込みエラー:', error);
+                localStorage.removeItem('fx-tracker-offline-data');
+            }
+            return false;
+        }
+
+        // データ更新（オフライン対応版）
+        function refreshData() {
+            if (isLoading) return;
+            
+            isLoading = true;
+            document.getElementById('loadingIndicator').style.display = 'block';
+            
+            // オンライン時の処理
+            if (navigator.onLine) {
+                setTimeout(() => {
+                    const currentPrices = generateCurrentPrices();
+                    trades.forEach(trade => {
+                        trade.currentPrice = currentPrices[trade.pair];
+                    });
+                    
+                    updatePnL();
+                    saveDataOffline(); // オフライン用にデータ保存
+                    
+                    document.getElementById('loadingIndicator').style.display = 'none';
+                    isLoading = false;
+                    
+                    showNotification('🔄 データを更新しました');
+                }, 1000);
+            } else {
+                // オフライン時の処理
+                setTimeout(() => {
+                    document.getElementById('loadingIndicator').style.display = 'none';
+                    isLoading = false;
+                    showNotification('📵 オフライン - 保存されたデータを表示中');
+                }, 500);
+            }
+        }
+
+        // アプリ初期化（PWA対応版）
+        function startApp() {
+            // テーマ復元
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.style.filter = 'invert(1) hue-rotate(180deg)';
+            }
+            
+            // オフラインデータ確認
+            const hasOfflineData = loadDataOffline();
+            
+            if (!hasOfflineData) {
+                setDefaultEntryDate();
+                initializeTrades();
+            } else {
+                updateDisplay();
+            }
+            
+            updateMarketStatus();
+            
+            // PWA初期化
+            initializePWA();
+            
+            // ネットワーク状態監視
+            updateNetworkStatus();
+            window.addEventListener('online', () => {
+                updateNetworkStatus();
+                showNotification('📶 オンラインに戻りました');
+                if (!isLoading) refreshData();
+            });
+            window.addEventListener('offline', () => {
+                updateNetworkStatus();
+                showNotification('📵 オフラインになりました');
+            });
+            
+            // 1分ごとに次回更新時刻を更新
+            setInterval(updateNextUpdateDisplay, 60000);
+            updateNextUpdateDisplay();
+            
+            // 定期的にデータ保存
+            setInterval(saveDataOffline, 60000);
+            
+            // 環境に応じた起動メッセージ
+            const restricted = isRestrictedEnvironment();
+            console.log(`📱 PWA版FXトラッカー起動完了 ${restricted ? '(デモ環境)' : '(フル機能)'}`);
+            
+            const startupMessage = restricted ? 
+                '🌐 デモ環境で起動 - 本番環境で全PWA機能利用可能' :
+                '🚀 PWA版FXトラッカー起動完了！';
+            
+            showNotification(startupMessage, 2000);
+        }
+
+        // イベントリスナー
+        document.getElementById('lotSize').addEventListener('input', updatePnL);
+        document.getElementById('sortBy').addEventListener('change', () => {
+            sortTrades();
+            updateDisplay();
+        });
+        
+        document.getElementById('entryDate').addEventListener('change', (e) => {
+            entryStartDate = e.target.value;
+            if (entryStartDate) {
+                updateDateDisplay();
+                updatePnL();
+            }
+        });
+
+        // 初期化
+        function startApp() {
+            setDefaultEntryDate();
+            initializeTrades();
+            updateMarketStatus();
+            
+            // PWA初期化
+            initializePWA();
+            
+            // ネットワーク状態監視
+            updateNetworkStatus();
+            window.addEventListener('online', updateNetworkStatus);
+            window.addEventListener('offline', updateNetworkStatus);
+            
+            // 1分ごとに次回更新時刻を更新
+            setInterval(updateNextUpdateDisplay, 60000);
+            updateNextUpdateDisplay();
+            
+            console.log('📱 PWA版FXトラッカー起動完了');
+        }
+
+        // PWA初期化
+        function initializePWA() {
+            // Service Worker登録（環境チェック付き）
+            if ('serviceWorker' in navigator && !isRestrictedEnvironment()) {
+                registerServiceWorker();
+            } else {
+                console.log('ℹ️ Service Worker非対応環境 - 他のPWA機能は利用可能');
+                showNotification('📱 PWA機能の一部が制限されています', 2000);
+            }
+            
+            // インストールプロンプト設定
+            window.addEventListener('beforeinstallprompt', (e) => {
+                e.preventDefault();
+                deferredPrompt = e;
+                showInstallBanner();
+                console.log('✅ PWAインストールプロンプト準備完了');
+            });
+            
+            // アプリがインストールされた時
+            window.addEventListener('appinstalled', () => {
+                console.log('✅ PWAがインストールされました');
+                hideInstallBanner();
+                isInstalled = true;
+                showNotification('🎉 アプリがホーム画面に追加されました！');
+            });
+            
+            // 既にインストール済みかチェック
+            if (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) {
+                isInstalled = true;
+                hideInstallBanner();
+                console.log('✅ PWAスタンドアロンモードで実行中');
+                showNotification('🚀 PWAモードで起動中', 1500);
+            }
+            
+            // Web App Manifestの機能確認
+            checkPWASupport();
+        }
+
+        // 制限された環境かチェック
+        function isRestrictedEnvironment() {
+            try {
+                // Claude.aiのアーティファクト環境や制限されたiframeを検出
+                return window.location.href.includes('claude.ai') || 
+                       window !== window.top ||
+                       document.location.protocol === 'data:';
+            } catch (e) {
+                return true;
+            }
+        }
+
+        // PWAサポート状況チェック
+        function checkPWASupport() {
+            const features = {
+                'Web App Manifest': 'manifest' in document.createElement('link'),
+                'Service Worker': 'serviceWorker' in navigator && !isRestrictedEnvironment(),
+                'Installation Prompt': 'BeforeInstallPromptEvent' in window,
+                'Standalone Mode': window.matchMedia('(display-mode: standalone)').matches,
+                'Local Storage': 'localStorage' in window,
+                'Cache API': 'caches' in window
+            };
+            
+            console.log('📊 PWAサポート状況:', features);
+            
+            const supportedFeatures = Object.values(features).filter(Boolean).length;
+            const totalFeatures = Object.keys(features).length;
+            
+            console.log(`✅ PWA機能: ${supportedFeatures}/${totalFeatures} 対応`);
+            
+            // サポート状況に応じたメッセージ
+            if (supportedFeatures >= 4) {
+                console.log('🎉 PWA機能は十分サポートされています');
+            } else if (supportedFeatures >= 2) {
+                console.log('⚠️ 一部PWA機能が制限されています');
+            } else {
+                console.log('❌ PWA機能のサポートが限定的です');
+            }
+        }
+
+        // Service Worker登録（エラーハンドリング強化版）
+        function registerServiceWorker() {
+            try {
+                // 環境チェック
+                if (isRestrictedEnvironment()) {
+                    console.log('🔒 制限された環境のためService Workerをスキップ');
+                    return;
+                }
+
+                const swCode = [
+                    'const CACHE_NAME = "fx-tracker-v2";',
+                    'self.addEventListener("install", event => {',
+                    '  console.log("[SW] Installing...");',
+                    '  event.waitUntil(',
+                    '    caches.open(CACHE_NAME).then(cache => {',
+                    '      return cache.addAll(["./", "/?pwa=true"]);',
+                    '    })',
+                    '  );',
+                    '  self.skipWaiting();',
+                    '});',
+                    '',
+                    'self.addEventListener("activate", event => {',
+                    '  console.log("[SW] Activating...");',
+                    '  event.waitUntil(',
+                    '    caches.keys().then(cacheNames => {',
+                    '      return Promise.all(',
+                    '        cacheNames.map(cacheName => {',
+                    '          if (cacheName !== CACHE_NAME) {',
+                    '            return caches.delete(cacheName);',
+                    '          }',
+                    '        })',
+                    '      );',
+                    '    })',
+                    '  );',
+                    '  self.clients.claim();',
+                    '});',
+                    '',
+                    'self.addEventListener("fetch", event => {',
+                    '  if (event.request.destination === "document") {',
+                    '    event.respondWith(',
+                    '      caches.match(event.request).then(response => {',
+                    '        if (response) return response;',
+                    '        return fetch(event.request).catch(() => {',
+                    '          const offlineHTML = "<html><head><title>FXトラッカー</title></head>";',
+                    '          const offlineBody = "<body style=\\"text-align:center;padding:50px;background:#1a365d;color:white;font-family:sans-serif\\"><h1>📱 FXトラッカー</h1><h2>オフライン</h2><p>接続を確認してください</p><button onclick=\\"location.reload()\\">再試行</button></body></html>";',
+                    '          return new Response(offlineHTML + offlineBody, {',
+                    '            headers: { "Content-Type": "text/html" }',
+                    '          });',
+                    '        });',
+                    '      })',
+                    '    );',
+                    '  }',
+                    '});'
+                ].join('\n');
+                
+                const blob = new Blob([swCode], { type: 'application/javascript' });
+                const swUrl = URL.createObjectURL(blob);
+                
+                navigator.serviceWorker.register(swUrl)
+                    .then(registration => {
+                        console.log('✅ Service Worker登録成功');
+                        showNotification('⚡ オフライン機能が有効になりました', 2000);
+                        
+                        registration.addEventListener('updatefound', () => {
+                            showNotification('🔄 アプリが更新されました');
+                        });
+                    })
+                    .catch(error => {
+                        console.log('❌ Service Worker登録失敗:', error.message);
+                        // エラーは表示しない（制限環境では正常）
+                    });
+            } catch (error) {
+                console.log('⚠️ Service Worker初期化スキップ:', error.message);
+                // 制限環境では正常な動作なのでエラー表示しない
+            }
+        }
+
+        // インストールバナー表示
+        function showInstallBanner() {
+            if (!isInstalled) {
+                document.getElementById('installBanner').style.display = 'block';
+            }
+        }
+
+        // インストールバナー非表示
+        function hideInstallBanner() {
+            document.getElementById('installBanner').style.display = 'none';
+        }
+
+        // PWAインストール
+        function installPWA() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('👍 ユーザーがPWAインストールを承認');
+                        showNotification('📱 インストール中...');
+                    } else {
+                        console.log('👎 ユーザーがPWAインストールを拒否');
+                    }
+                    deferredPrompt = null;
+                    hideInstallBanner();
+                });
+            } else {
+                // 手動インストール手順を表示
+                showInstallInstructions();
+            }
+        }
+
+        // 手動インストール手順
+        function showInstallInstructions() {
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+            const message = isIOS 
+                ? '📱 Safari: 共有ボタン → ホーム画面に追加'
+                : '📱 Chrome: メニュー → ホーム画面に追加';
+            
+            showNotification(message, 5000);
+        }
+
+        // ネットワーク状態更新
+        function updateNetworkStatus() {
+            const statusElement = document.getElementById('networkStatus');
+            const iconElement = document.getElementById('networkIcon');
+            const textElement = document.getElementById('networkText');
+            
+            if (navigator.onLine) {
+                statusElement.style.display = 'none';
+            } else {
+                statusElement.style.display = 'flex';
+                statusElement.className = 'network-status';
+                iconElement.textContent = '📵';
+                textElement.textContent = 'オフライン - 保存されたデータを使用中';
+            }
+        }
+
+        // 通知表示
+        function showNotification(message, duration = 3000) {
+            // 既存の通知を削除
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            // 新しい通知を作成
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            
+            // スタイルを設定
+            const styles = [
+                'position: fixed',
+                'top: 80px',
+                'left: 16px',
+                'right: 16px',
+                'background: rgba(66, 153, 225, 0.95)',
+                'color: white',
+                'padding: 16px',
+                'border-radius: 12px',
+                'text-align: center',
+                'z-index: 1000',
+                'backdrop-filter: blur(10px)',
+                'animation: slideDown 0.3s ease-out',
+                'box-shadow: 0 4px 12px rgba(0,0,0,0.3)',
+                'font-weight: 600'
+            ];
+            
+            notification.style.cssText = styles.join('; ');
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            // 自動削除
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.style.animation = 'slideUp 0.3s ease-out';
+                    setTimeout(() => notification.remove(), 300);
+                }
+            }, duration);
+        }
+
+        document.addEventListener('DOMContentLoaded', startApp);
+
+        // スワイプジェスチャー対応（PWA拡張版）
+        let touchStartY = 0;
+        let touchStartX = 0;
+        let isPulling = false;
+        
+        document.addEventListener('touchstart', (e) => {
+            touchStartY = e.touches[0].clientY;
+            touchStartX = e.touches[0].clientX;
+        }, { passive: true });
+
+        document.addEventListener('touchmove', (e) => {
+            const touchY = e.touches[0].clientY;
+            const touchX = e.touches[0].clientX;
+            const diffY = touchY - touchStartY;
+            const diffX = touchX - touchStartX;
+            
+            // 縦スワイプで、かつページトップにいる場合
+            if (Math.abs(diffY) > Math.abs(diffX) && window.scrollY === 0 && diffY > 50) {
+                isPulling = true;
+                showPullToRefresh();
+            }
+        }, { passive: true });
+
+        document.addEventListener('touchend', (e) => {
+            const touchEndY = e.changedTouches[0].clientY;
+            const diff = touchStartY - touchEndY;
+            
+            if (isPulling) {
+                hidePullToRefresh();
+                refreshData();
+                isPulling = false;
+            } else if (diff < -100) {
+                // 下向きスワイプで更新
+                refreshData();
+            }
+        }, { passive: true });
+
+        function showPullToRefresh() {
+            let indicator = document.querySelector('.pull-to-refresh');
+            if (!indicator) {
+                indicator = document.createElement('div');
+                indicator.className = 'pull-to-refresh';
+                indicator.innerHTML = '🔄';
+                document.body.appendChild(indicator);
+            }
+            indicator.classList.add('active');
+        }
+
+        function hidePullToRefresh() {
+            const indicator = document.querySelector('.pull-to-refresh');
+            if (indicator) {
+                indicator.classList.remove('active');
+                setTimeout(() => {
+                    if (indicator.parentNode) {
+                        indicator.remove();
+                    }
+                }, 300);
+            }
+        }
+    </script>
+</body>
+</html>
